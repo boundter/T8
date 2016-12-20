@@ -16,7 +16,7 @@ function sumArray(data) {
 function prepDelta() {
 
   var delta = [[], []];
-  var data = [[], []]
+  var data = [[], []];
 
   for (var i = 0; i < particle.length; i++) {
     for (var j = 0; j < particle[i].history.length / 2 - 1; j++) {
@@ -49,7 +49,7 @@ function prepDelta() {
 // all deltas are integers.
 function buildHistogram(delta) {
 
-  var data = [[], []]
+  var data = [[], []];
 
   for (var i = 0; i < 2*consolidate + 1; i++) {
     data[0].push(-consolidate + i);
@@ -111,7 +111,7 @@ function normalDistribution(mean, vari) {
   var data = [];
 
   for (var k = 0; k < 2*consolidate + 1; k++) {
-    var i = -consolidate + k
+    var i = -consolidate + k;
     var exp = 1 / (Math.sqrt(2 * Math.PI *vari)) *
           Math.exp((-1) * (i - mean) * (i - mean) / (2 * vari));
     data.push(exp);
