@@ -1,0 +1,50 @@
+# -----------------------------------------------------------------------------
+# Theorie
+# -----------------------------------------------------------------------------
+
+- random walk
+- Momente
+- Einstein-Smoluchowski
+- Diffusion
+
+Was sollte beantwortet werden?
+- Was ist die Brownsche Molekular Bewegung?
+- Wie kann man sie beschreiben, als Bewegung und formal?
+- Was ist Statistik und welche Hilfsmittel hat sie?
+- Wie beschreibt die Statistik die Bewegung?
+
+Was ist die Brownsche Bewegung?
+Die Brownsche Molekularbewegung beschreibt die zitternde Bewegung eines kleinen Körpers in einer Flüssigkeit, hier Wasser. Sie entsteht durch die thermische Bewegung der umgebenden Flüssigkeitsmoleküle, die gegen den Körper stoßen und so seine Bewegung anregen.
+Folgefrage: Was ist die thermische Bewegung?
+
+Wie kann man sie beschreiben, als Bewegung und formal?
+
+
+# -----------------------------------------------------------------------------
+# Durchführung
+# -----------------------------------------------------------------------------
+
+-> later
+
+# -----------------------------------------------------------------------------
+# Auswertung
+# -----------------------------------------------------------------------------
+
+- graphische Darstellung der Verteilung + Box
+- plot der Bewegung
+- Berechne D, k
+
+# -----------------------------------------------------------------------------
+# Rechenaufgaben
+# -----------------------------------------------------------------------------
+
+
+
+# -----------------------------------------------------------------------------
+# Anhang
+# -----------------------------------------------------------------------------
+
+- Momente
+- boxing-method
+- Verteilung kann nur Gauss sein, wegen Momenten
+- Diffusionsgleichung aus random walk
