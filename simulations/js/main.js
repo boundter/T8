@@ -1,11 +1,16 @@
-var c;
-var ctx;
-var fps = 30;
-var particle;
-var consolidate = 10;
+// FIXME: 1. The old plot stays below the new one, so when you hover over it
+//           it comes through.
+//        2. The edge-cases for the histogram show fals values, probbably
+//           becaus of the consolidation.
+
+var canvas; // Canvas for the simulation.
+var ctx; // Context of the canvas for the simulation
+var fps = 30; // Frames per second = smallest number of collisons
+var particle; // List of particles, to loop over.
+var consolidate = 10; // Number of steps to average over for distirbution.
 
 
-
+// Make a black canvas the size of the whole screen.
 function setup() {
   canvas = document.getElementById("simulation");
   canvas.width  = window.innerWidth;
@@ -18,21 +23,23 @@ function setup() {
 
 function draw(part, t, col) {
 
-
+  // we want to make one step for every picture.
   var maxSteps = fps*t;
   var steps = 0;
 
   particle = [];
   for (var i = 0; i < part; i++){
-    particle.push(new randomParticle(Math.random()*canvas.width*0.8,
-                                     Math.random()*canvas.height*0.8));
+    // Start every particle in a box of length width/2 around the middle.
+    particle.push(new randomParticle(canvas.width*0.25 + Math.random()*canvas.width*0.5,
+                                     canvas.height*0.25 + Math.random()*canvas.height*0.5));
     particle[i].display();
   }
 
-  setup();
-  var id = setInterval(sim, 1000 / fps);
+  setup(); // Clean the canvas.
+  var id = setInterval(sim, 1000 / fps); // Repeat the plot.
 
-
+  // Draws the particle and, if the max time is reached also it's path and the
+  // distribution.
   function sim() {
     ctx.beginPath();
     ctx.rect(0, 0, canvas.width, canvas.height);
@@ -43,26 +50,28 @@ function draw(part, t, col) {
       particle[i].display();
     }
     steps += 1;
+    // Check, if we have drawn enough pictures.
     if (steps === maxSteps) {
       clearInterval(id);
+      var data = [];
+      // Plot path and distribution.
       for (var i = 0; i < particle.length; i++) {
         particle[i].path();
         var delta = prepDelta();
-        var mean = calcMean(delta[0]);
-        var vari = calcVariance(delta[0]);
-        var normal = normalDistribution(mean, vari);
-        var histo = buildHistogram(delta[0]);
-        console.log(delta);
-        console.log(histo);
-        plt(histo, normal);
+        data = data.concat(delta[0]);
       }
+      var mean = calcMean(data);
+      var vari = calcVariance(data);
+      var normal = normalDistribution(mean, vari);
+      var histo = buildHistogram(data);
+      plt(histo, normal);
     }
   }
 
 
 }
 
-
+// Start the simulation.
 function startSimulation() {
   var part = document.getElementById("part").value;
   var t = document.getElementById("t").value;
