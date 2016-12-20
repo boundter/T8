@@ -2,13 +2,59 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <script language="javascript" type="text/javascript" src="js/p5.js"></script>
-  <script language="javascript" type="text/javascript" src="js/randomParticle.js"></script>
+  <script language="javascript" type="text/javascript" src="js/Chart.bundle.js"></script>
   <script language="javascript" type="text/javascript" src="js/main.js"></script>
-  <style> body {padding: 0; margin: 0;} </style>
+  <script language="javascript" type="text/javascript" src="js/randomParticle.js"></script>
+  <script language="javascript" type="text/javascript" src="js/interpretation.js"></script>
+  <script language="javascript" type="text/javascript" src="js/plot.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-
-
 <body>
+  <canvas id="simulation" width="500" height="500">
+    Your browser does not support the HTML5 canvas tag.
+  </canvas>
+
+  <div class="plot">
+    <div>
+      <canvas id="plot" width="500" height="500"></canvas>
+    </div>
+  </div>
+
+  <script>
+  setup();
+  </script>
+
+  <div class="slid">
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            #Teilchen:
+          </td>
+          <td>
+            <input type="number" id="part"  required/><br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            t[s]:
+          </td>
+          <td>
+            <input type="number" id="t"  required/><br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Stöße pro s: 30x
+          </td>
+          <td>
+            <input type="number" id="col" required/><br>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <button onclick="startSimulation()">Start</button>
+  </div>
 </body>
 </html>

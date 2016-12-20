@@ -1,38 +1,49 @@
-function randomParticle(pos) {
+function randomParticle(x, y) {
 
-  this.pos = createVector(pos.x, pos.y);
+
+  this.x = x;
+  this.y = y;
+  this.r = 5;
   this.history = [];
+  this.xOrig = x;
+  this.yOrig = y;
 
 
   this.step = function(steps) {
-    for (var i = 0; i < steps; i ++){
+    for (var i = 0; i < steps; i++){
       var rand = Math.random();
-      if (rand >= 0.5 ) {
-        this.pos.x += 1;
+      if (rand >= 0.5) {
+        this.x += 1;
       }
       else {
-        this.pos.x -= 1;
+        this.x -= 1;
       }
       rand = Math.random();
-      if (rand >= 0.5 ) {
-        this.pos.y += 1;
+      if (rand >= 0.5) {
+        this.y += 1;
       }
       else {
-        this.pos.y -= 1;
+        this.y -= 1;
       }
+      this.history.push(this.x, this.y);
     }
   }
 
 
   this.display = function() {
-    stroke(255);
-    fill(255);
-    ellipse(this.pos.x, this.pos.y, 10, 10);
-    for (var i = 0; i < this.history.length - 1; i++) {
-      strokeWeight(0.25);
-      line(this.history[i].x, this.history[i].y, this.history[i+1].x, this.history[i+1].y);
-    };
-    this.history.push(this.pos.copy());
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.r, 0, 2 * Math.PI);
+    ctx.fillStyle = "white";
+    ctx.fill();
   }
 
+
+  this.path = function() {
+    ctx.moveTo(this.xOrig, this.yOrig);
+    ctx.strokeStyle="white";
+    for (var i = 0; i < this.history.length/2; i++) {
+      ctx.lineTo(this.history[2*i], this.history[2*i+1]);
+    }
+    ctx.stroke();
+  }
 }
