@@ -1,0 +1,36 @@
+\section*{Grundlagen}
+
+Die Brownsche Bewegung beschreibt die zufällige Bewegung eines kleinen Körpers in einer Flüssigkeit. Sie entsteht durch die thermische Bewegung der umgebenden Flüssigkeitsmoleküle, die gegen den Körper stoßen.
+Thermische Bewegung ist ein Ausdruck der thermische Energie, also der Energie, die Teilchen aufgrund ihrer Temperatur aufweisen.\\
+Eine höhere Temperatur führt zu einer höheren Geschwindigkeit der Moleküle. Wird die Temperatur jedoch reduziert, dann verringert sich auch die Geschwindigkeit der Moleküle, bis sie schließlich ruhen. Die Temperatur, bei der alle Moleküle ruhen ist der absolute Nullpunkt und entspricht $0 \,$K.\\
+
+Da die Brownsche Bewegung zufällig ist, können keine präzisen Voraussagen über sie gemacht werden, aber mithilfe der Statistik lassen sich trotzdem allgemeine Aussagen über sie formulieren.\\
+Die wichtigsten Mittel in der Statistik sind der Mittelwert und die Standardabweichung. Der Mittelwert $\mean{x}$ gibt die durchschnittliche Position in x-Richtung an und die Standardabweichung $\sigma(x)$ gibt die durchschnittliche Entfernung von dem Mittelwert an. Für diskrete Prozesse sind sie folgendermaßen definiert:
+\begin{align}
+  \mean{x} & = \frac{1}{N} \sum_{i=1}^{N} x_i, \\
+  \sigma(x) & = \sqrt{\mean{ {\left( x - \mean{x} \right)}^2 }} = \sqrt{\frac{1}{N} \sum_{i=1}^{N} {\left( x_i - \mean{x} \right)}^2}.
+\end{align}
+Um diese Hilfsmittel effizient auf die Brownsche Bewegung anwenden zu können muss sie noch formal beschrieben werden. Dazu eignet sich das Model eines \textit{random walk}. Ein \textit{random walk} in einer Dimension funktioniert so: In regelmäßigen Zeitabständen $\tau$ wird eine Münze geworfen, zeigt sie Kopf bewegt sich das Teilchen einen Schritt nach rechts und zeigt sie Zahl einen Schritt nach links. Die Schrittweite $\delta$ für beide Fälle ist gleich groß.\\
+Es ist intuitiv klar, dass sich das Teilchen im Durchschnitt nicht von seiner Ursprungslage wegbewegt, ist der Ursprung bei $x = 0$, dann ist $\left< x \right> = 0$. Aber was ist mit der Standardabweichung? Da hier $x^2$ eine Rolle spielt löschen sich die Schritte nach links und recht nicht gegenseitig aus.
+Desto größer die Schrittweite ist, desto weiter wird sich as Teilchen im Durchschnitt von der Nulllage entfernen. Alternativ kann auch die Zeit verkürzt werden. Aus dieser Überlegung ergibt sich die Diffusionskonstante $D$, sie gibt an, wie weit sich das Teilchen von seinem Ursprung in einer gewissen Zeit entfernt.
+\begin{equation}
+  D = \frac{\delta^2}{2 \tau}
+\end{equation}
+Und diese hängt mit der Standardabweichung zusammen,
+\begin{equation}
+  \sigma(x)^2 = 2Dt = \delta^2 \frac{t}{\tau}.
+\end{equation}
+Das heißt, die Standardabweichung steigt in jeder Zeiteinheit $\sqrt{\tau}$ um die Schrittweite $\delta$. Die konstanten Faktoren 2 sind nur aus Konventionsgründen aufgetreten, denn sie kürzen sich gegenseitig. Die mittlere Entfernung vom Ausgangspunkt hängt also von der Diffusionskonstant (dem \textit{random walk}) und der Beobachtungszeit ab.\\
+% TODO: Make the transition/ line of thought clearer
+Wird der \textit{random walk} nur eine kurze Zeit beobachtet können aufgrund der zufälligen Natur keine genauen Aussagen gemacht werden. Erst für lange Zeitreihen werden sich die Messwerte an die theoretischen Werte annähern. Alternativ können aber auch viele \textit{random walks} für kurze Zeit betrachtet werden. Das ist das Ergodentheorem, es besagt, dass es für zufällige thermodynamische System äquivlaent ist ein System über lange Zeit zu mitteln oder viele System über kurze Zeit.\\
+Bei einem \textit{random walk} in zwei Dimensionen, wie er in dem Versuch gemessen wird, können die beiden Richtungen unabhängig voneinander als zwei \textit{random walks} betrachtet werden. Es werden also gleichzeitig zwei Münzen geworfen, eine für die Bewegung nach links und rechts und eine für die Bewegung nach oben und unten.\\
+% TODO: The cut seems a bit hard.
+
+Damit kann die Brownsche Bewegung beschrieben werden. Es fehlt aber noch der Zusammenhang zwischen ihr und der thermischen Energie der Flüssigkeit. Die thermische Energie der umgebenden Flüssigkeitsmoleküle führt zu der Bewegung, dass heißt, die thermische Energie der Flüssigkeit ist gleich der Bewegungsenergie. Diese setzt sich zusammen aus der Diffusion und der Reibung des Teilchens in der Flüssigkeit. Die entstandene Gleichung heißt die  Einstein-Smoluchowski Gleichung.
+\begin{equation}
+  D C = k_B T
+\end{equation}
+Dabei ist $k_B$ die Boltzmannkonstante, $T$ die Temperatur in K und $C$ die Stokessche Reibungskonstante. Sie gibt an, wie stark die Reibung auf eine Kugel mit Radius $r$ in einer Flüssigkeit mit Viskosität $\eta$ wirkt.
+\begin{equation}
+  C = 6 \pi \eta r
+\end{equation}
