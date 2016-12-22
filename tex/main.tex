@@ -1,0 +1,29 @@
+\documentclass[a4paper, 12pt]{scrartcl}
+ \usepackage{fullpage}
+ \usepackage[ngerman]{babel}
+ \usepackage[utf8]{inputenc}
+ \usepackage{hyperref}
+ \usepackage{amsmath}
+
+
+
+\title{T8 Brownsche Molekularbewegung}
+
+% To keep the font consistent across the text and the heading for roman font
+%\setkomafont{sectioning}{\rmfamily\bfseries}
+
+% Nice san serif font
+\renewcommand{\familydefault}{\sfdefault}
+
+\newcommand{\mean}[1]{\left< #1 \right>}
+
+\begin{document}
+% TODO: Improve introduction.
+\input{src/header}
+\input{src/introduction}
+\input{src/background}
+\input{src/procedure}
+\input{src/analysis}
+\newpage
+\input{src/appendix}
+\end{document}
