@@ -1,1 +1,22 @@
 \section*{Auswertung}
+
+Zur Auswertung wird die lange Messreihe für ein Teilchen als viele kurze random walks betrachtet. Mit dem Ergodentheorem kann das Ergebnis gleichgesetzt werden mit der langen Messreihe.
+Sämtliche Rechnungen sollen für $x$ und $y$ durchgeführt werden, im weiteren wird immer $x$ benutzt, aber die Auswertung für $y$ funktioniert analog.
+
+\begin{enumerate}
+\item Als erstes soll die Bewegung des Teilchens in einem $x$-$y$-Diagramm dargestellt werden. Hieran ist kurz zu erklären wie die Bewegung während der Messreihe verlief und welche Ergebnisse zu erwarten sind.
+
+\item Sämtliche Messwerte müssen von Pixel in Meter umgerechnet werden. Dazu wird verwendet, dass zwischen zwei Skalenstrichen des Objektmikrometers $10\, \mu$m liegen.
+
+\item Aus den Messdaten wird die Verschiebung $\Delta x$ zwischen zwei Bildern bestimmt. Für diese wird dann der Mittelwert und die Standardabweichung bestimmt. Was ist für den Mittelwert zu erwarten?
+
+\item Die $\Delta x$ sollen in einem Histogram dargestellt und mit der Normalverteilung
+\begin{equation}
+  f(\Delta x, \mean{\Delta x}, \sigma) = \frac{1}{\sqrt{2 \pi \sigma^2}} e^{- \frac{(\Delta x - \mean{\Delta x})^2}{2 \sigma^2}}
+\end{equation}
+verglichen werden. Um die Skala anzupassen muss die Normalverteilung mit der Anzahl der Messpunkte multipliziert werden.
+
+\item Aus $\sigma(\Delta x)$ soll die Diffusionskonstante mithilfe von Gleichung (\ref{eq:diff}) berechnet werden. Die Zeit $t$ entspricht dem Zeitintervall zwischen zwei Bildern.
+
+\item Die berechnete Diffusionskonstante kann dann in die Gleichung (\ref{eq:einstein}) eingesetzt werden um die Boltzmannkonstante zu bestimmen. Diese ist mit dem Literaturwert zu vergleichen. Der Radius eines Polystyrol-Kügelchens beträgt $1\,\mu$m.
+\end{enumerate}

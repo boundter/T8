@@ -65,8 +65,27 @@ Dabei ist k die Boltzmannkonstante, T die Temperatur in K und C die Stokessche R
 # -----------------------------------------------------------------------------
 
 - graphische Darstellung der Verteilung + Box
-- plot der Bewegung
+- Plot der Bewegung
 - Berechne D, k
+
+Betrachte die Daten als viele einzelne Random walks. Alles analog für y. Vorher in m umrechnen -> kurze Erklärung.
+- Plot der Bewegung
+- Berechne Delta x aus den Daten
+- Berechne Berechne sigma(Delta x) und mean(Delta x)
+- Histogram mit Normalverteilung (mehr dazu? Wieviel kann Excel?) // Formel für Gaußverteilung
+- Aus sigma(Delta x) die Diffusionskonstante (Was für t einsetzen?)
+- Aus der Diffusionskonstante die Boltzmannkonstante.
+
+Zur Auswertung wird die lange Messreihe für ein Teilchen als viele kurze random walks betrachtet. Mit dem Ergodentheorem kann das Ergebnis gleichgesetzt werden mit der langen Messreihe.
+Sämtliche Rechnungen sollen für x und y durchgeführt werden, im weiteren wird immer x benutzt, aber die Auswertung für y funktioniert analog.
+- Als erstes soll die Bewegung des Teilchens in einem x-y-Diagramm dargestellt werden. Hieran ist kurz zu erklären wie die Bewegung während der Messreihe verlief und welche Ergebnisse zu erwarten sind.
+- Sämtliche Messwerte müssen von Pixel in Meter umgerechnet werden. Dazu wird verwendet, dass zwischen zwei Skalenstrichen des Objektmikrometers 10 um liegen.
+- Aus den Messdaten wird die Verschiebung Delta x zwischen zwei Bildern bestimmt. Für diese wird dann der Mittelwert und die Standardabweichung bestimmt. Was ist für den Mittelwert zu erwarten?
+- Die Delta x sollen in einem Histogram dargestellt und mit der Normalverteilung
+// Gleichung für Normalverteilung
+verglichen werden. Um die Skala anzupassen muss die Normalverteilung mit der Anzahl der Messpunkte multipliziert werden.
+- Aus sigma(Delta x) soll die Diffusionskonstante mithilfe von Gleichung (?) berechnet werden. Die Zeit t entspricht dem Zeitintervall zwischen zwei Bildern.
+- Die berechnete Diffusionskonstante kann dann in die Gleichung (?) eingesetzt werden um die Boltzmannkonstante zu bestimmen. Diese ist mit dem Literaturwert zu vergleichen. Der Radius eines Polystyrol-Kügelchens beträgt 1 um.
 
 # -----------------------------------------------------------------------------
 # Rechenaufgaben / Fragen
@@ -82,3 +101,33 @@ Dabei ist k die Boltzmannkonstante, T die Temperatur in K und C die Stokessche R
 - boxing-method
 - Verteilung kann nur Gauss sein, wegen Momenten
 - Diffusionsgleichung aus random walk
+
+#TODO: Kurze Notiz über die boxing-Methode und Histogramme
+
+Momente:
+Als Erweiterung des Mittelwerts und der Standardabweichung können die Momente definiert werden. Das n-te Moment ist gegeben durch
+// Definition eines Momentes
+Es ist schnell zu erkennen, dass sigma^2 das zweite Moment von x ist, es wird auch die Varianz genannt. Typischerweise werden zur Beschreibung von Zufallsprozessen immer der Mittelwert und die Varianz angegeben, aber auch die höheren Momente spielen eine Rolle, so ist z.B. das dritte Moment die Schiefe der Verteilung.
+Eine besondere Wahrscheinlichkeitsverteilung ist die Normalverteilung, hier gibt es nur ein erstes und zweites Moment, alle anderen Momente sind null. Eine Normalverteilung ist also durch die Angabe der ersten beiden Momente vollständig charakterisiert. Dieser Umstand kann benutzt werden, um zu zeigen, dass die Normalverteilung einen random walk beschreibt:
+x ist die Entfernung von der Ursprungslage nach einer Zeiteinheit und z ist die Entfernung nach n Zeiteinheiten. Alle Momente steigen linear mit der Zeit, desto länger der random walk dauert, desto weiter kann er sich von seinem Ausgangspunkt entfernen.
+Damit ist
+// Formel für Mittelwert.
+und für die höheren Momente
+// Formel für Momente.
+Durch Vergleich der höheren Momente mit der Varianz zeigt sich, dass sie für lange Zeitreihen verschwinden.
+// Rechnung für t -> infty
+Der random walk kann also mit dem Mittelwert und der Varianz vollstänbdig beschrieben werden.
+
+Diffusionsgleichung:
+Anhand des random walk kann die Diffusionsgleichung hergeleitet werden, ohne physikalische Begriffe, wie etwa Konzentration, zu verwenden, sondern nur mithilfe der Statistik. Das deutet auf die enge Verbindung des random walks mit der Thermodyanmik/Statistischen Physik hin.
+Zuerst wird ein random walk mit konstanter Schrittgröße l betrachtet. Die Rate einen Schritt nach links zu machen ist alpha und die Rate einen Schritt nach rechts zu machen ist beta. Die Rate gibt an, wie oft ein Schritt stattfindet und hängt eng mit der Wahrscheinlichkeit eines Schrittes zusammen. Hier wird also nicht mehr zu bestimmten Zeitpunkten eine Münze geworfen, sondern die Wahrscheinlichkeiten sind erst einmal unterschiedlich.  Wie verändert sich also die Wahrscheinlichkeit P zu einer bestimmten Zeit t an einem bestimmten Punkt x zu sein? Sie setzt sich zusammen aus der Wahrscheinlichkeit von rechts einen Schritt nach links zu machen oder umgekehrt und der Wahrscheinlichkeit keinen Schritt zu machen.
+// Formel für änderung
+Um die Wahrscheinlichkeit, links oder rechts von x zu sein, zu bestimmen kann P in einer Taylorreihe entwickelt werden, wobei l so klein gewählt wird, dass die Reihe nach dem dritten Glied abgebrochen werden kann.
+// Taylorreihe
+Die Taylorreihe wird in die vorige Formel eingesetzt.
+// Taylor für Änderung
+Bei dem Übergang zum Kontinuum l to 0 werden die folgenden Terme konstant, da sich die Raten wegen der kürzeren Sprungweite erhöhen.
+// Formel für Raten
+Eingesetzt in die Taylorreihendarstellung verschwinden alle Terme, die noch ein l beinhalten
+// Einsetzen und Diffusionsgleichung
+Das entspricht genau der Diffusionsgleichung, wenn P die Konzentration ist, A = 0, es also keinen Drift gibt und wenn B das doppelte der Diffusionskonstante ist. Daher kommt auch die 2 in der Gleichung (?).

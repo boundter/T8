@@ -1,1 +1,51 @@
 \section*{Anhang}
+
+\subsection*{Momente}
+Als Erweiterung des Mittelwerts und der Standardabweichung können die Momente definiert werden. Das n-te Moment ist gegeben durch
+\begin{equation}
+  \mean{\mean{x^n}} =  \mean{\left( x - \mean{x} \right)^n}
+\end{equation}
+Es ist schnell zu erkennen, dass $\sigma^2$ das zweite Moment von $x$ ist, es wird auch die Varianz genannt. Typischerweise werden zur Beschreibung von Zufallsprozessen immer der Mittelwert und die Varianz angegeben, aber auch die höheren Momente spielen eine Rolle, so ist z.B. das dritte Moment die Schiefe der Verteilung.\\
+Eine besondere Wahrscheinlichkeitsverteilung ist die Normalverteilung, hier gibt es nur ein erstes und zweites Moment, alle anderen Momente sind null. Eine Normalverteilung ist also durch die Angabe der ersten beiden Momente vollständig charakterisiert. Dieser Umstand kann benutzt werden, um zu zeigen, dass die Normalverteilung einen \emph{random walk} beschreibt:\\
+$x$ ist die Entfernung von der Ursprungslage nach einer Zeiteinheit und $z$ ist die Entfernung nach $n$ Zeiteinheiten. Alle Momente steigen linear mit der Zeit, desto länger der \emph{random walk} dauert, desto weiter kann er sich von seinem Ausgangspunkt entfernen.
+Damit ist
+\begin{equation}
+  \mean{z} = n \mean{x}
+\end{equation}
+und für die höheren Momente
+\begin{equation}
+  \mean{\mean{z^n}} = n \mean{\mean{x^n}}
+\end{equation}
+Durch Vergleich der höheren Momente mit der Varianz zeigt sich, dass sie für lange Zeitreihen verschwinden.
+\begin{align}
+  \frac{\mean{\mean{z^m}}}{\mean{\mean{z^2}}^{m/2}} & = \frac{n \mean{\mean{x^m}}}{\left( n \mean{\mean{x^2}} \right)^{m/2}} \\
+  & = n^{1 - m/2} \frac{\mean{\mean{x^m}}}{\mean{\mean{x^2}}^{m/2}}
+  \intertext{Der rechte Term ist konstant für konstantes $m$. Also gilt für ein $m > 2$, dass}
+  & \xrightarrow{\: n \to \infty \:} 0.
+\end{align}
+Der \emph{random walk} kann also mit dem Mittelwert und der Varianz vollständig beschrieben werden.
+
+\subsection*{Diffusionsgleichung}
+Anhand des random walk kann die Diffusionsgleichung hergeleitet werden, ohne physikalische Begriffe, wie etwa Konzentration, zu verwenden, sondern nur mithilfe der Statistik. Das deutet auf die enge Verbindung des \emph{random walks} mit der Thermodyanmik/Statistischen Physik hin.\\
+Zuerst wird ein \emph{random walk} mit konstanter Schrittgröße $l$ betrachtet. Die Rate einen Schritt nach links zu machen ist $\alpha$ und die Rate einen Schritt nach rechts zu machen ist $\beta$. Die Rate gibt an, wie oft ein Schritt stattfindet und hängt eng mit der Wahrscheinlichkeit eines Schrittes zusammen. Hier wird also nicht mehr zu bestimmten Zeitpunkten eine Münze geworfen, sondern die Wahrscheinlichkeiten sind erst einmal unterschiedlich.\\ Wie verändert sich also die Wahrscheinlichkeit $P$ zu einer bestimmten Zeit $t$ an einem bestimmten Punkt $x$ zu sein? Sie setzt sich zusammen aus der Wahrscheinlichkeit von rechts einen Schritt nach links zu machen oder umgekehrt und der Wahrscheinlichkeit von $x$ einen Schritt weg zu gehen..
+\begin{equation}
+  \frac{\partial P}{\partial t} (x, t) = \alpha P(x + l, t) + \beta P(x - l, t) - (\alpha + \beta) P(x, t)
+\end{equation}
+Um die Wahrscheinlichkeit, links oder rechts von $x$ zu sein, zu bestimmen kann $P$ in einer Taylorreihe entwickelt werden, wobei $l$ so klein gewählt wird, dass die Reihe nach dem dritten Glied abgebrochen werden kann.
+\begin{equation}
+  P(x \pm l, t) = P(x, t) \pm l \frac{\partial P}{\partial x}(x, t) + \frac{l^2}{2} \frac{\partial^2 P}{\partial x^2}(x, t) \pm \frac{l^3}{6} \frac{\partial^2 P}{\partial x^2}(x, t) + \cdots
+\end{equation}
+Die Taylorreihe wird in die vorige Formel eingesetzt.
+\begin{equation}
+  \frac{\partial P}{\partial t} (x, t) = l (\alpha - \beta) \frac{\partial P}{\partial x}(x, t) + \frac{1}{2} l^2 (\alpha + \beta) \frac{\partial^2 P}{\partial x^2}(x, t) + \frac{1}{6} l^3 (\alpha - \beta) \frac{\partial^3 P}{\partial x^3}(x, t)
+\end{equation}
+Bei dem Übergang zum Kontinuum $l \to 0$ werden die folgenden Terme konstant, da sich die Raten wegen der kürzeren Sprungweite erhöhen.
+\begin{align}
+  - A & = l (\alpha - \beta) \\
+  B & = l^2 (\alpha + \beta)
+\end{align}
+Eingesetzt in die Taylorreihendarstellung verschwinden alle Terme, die noch ein $l$ beinhalten.
+\begin{equation}
+  \frac{\partial P}{\partial t} (x, t) = - A \frac{\partial P}{\partial x}(x, t) + \frac{1}{2} B \frac{\partial^2 P}{\partial x^2} (x, t)
+\end{equation}
+Diese Gleichung erinnert stark an die Diffusionsgleichung (?), wenn $P$ gegen die Konzentration $c$ ausgetauscht wird. Der $A$-Term beschreibt den Drift, also eine Bewegung des ganzen Systems und der $B$-Term beschreibt die Diffusion. Dieser Faktor von 2 führt auch zu der Konvention in der Gleichung (\ref{eq:diff}).
