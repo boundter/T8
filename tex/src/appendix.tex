@@ -1,5 +1,14 @@
 \section*{Anhang}
 
+\subsection*{Histogram und \emph{boxing-method}}
+Ein Histogram spiegelt die kontinuierliche Wahrscheinlichkeitsverteilung von diskreten Messdaten wieder. Anhand eines Histograms kann bestimmt werden, wie wahrscheinlich eine Messergebnis innerhalb eines Intervals liegt. Darin besteht auch die größte Schwierigkeit dieser Methode: die geschickte Wahl der Intervalle. Alle Intervalle sollten die gleiche Größe haben, da sonst das Histogram verfälscht wird, aber die genaue Größe hängt von der untersuchten  Datenreihe ab.\\
+Am einfachsten lassen sich die Intervalle finden, indem vorher über die Auflösung, also die Anzahl der Intervalle entschieden wird.  Ist die Auflösung zu fein, sind also die Intervalle sehr klein, dann ist in ihnen meist nur ein Messpunkt enthalten und die resultierende Verteilung ist nahezu eine Gleichverteilung. Ist sie hingegen zu grob, gibt es also zu wenig Intervalle, dann werden zu viele unterschiedliche Messwerte zusammengefasst. Für diesen Versuch eignen sich etwa ?12? Intervalle. Um die Intervallgröße $\Delta$ zu bestimmen kann die Formel
+\begin{equation}
+  \Delta = \frac{Max - Min}{\#Intervalle}
+\end{equation}
+benutzt werden. Dabei ist Max der größte Messwert, Min der kleinste Messwert und \#Intervalle die Anzahl der Intervalle.\\
+Danach wird die Anzahl der Messwerte in jedem Intervall gezählt und mit Balken aufgetragen, wie in Abbildung ??? zu sehen ist, die Höhe der Balken liefert die Wahrscheinlichkeitsverteilung.
+
 \subsection*{Momente}
 Als Erweiterung des Mittelwerts und der Standardabweichung können die Momente definiert werden. Das n-te Moment ist gegeben durch
 \begin{equation}
@@ -26,8 +35,8 @@ Durch Vergleich der höheren Momente mit der Varianz zeigt sich, dass sie für l
 Der \emph{random walk} kann also mit dem Mittelwert und der Varianz vollständig beschrieben werden.
 
 \subsection*{Diffusionsgleichung}
-Anhand des random walk kann die Diffusionsgleichung hergeleitet werden, ohne physikalische Begriffe, wie etwa Konzentration, zu verwenden, sondern nur mithilfe der Statistik. Das deutet auf die enge Verbindung des \emph{random walks} mit der Thermodyanmik/Statistischen Physik hin.\\
-Zuerst wird ein \emph{random walk} mit konstanter Schrittgröße $l$ betrachtet. Die Rate einen Schritt nach links zu machen ist $\alpha$ und die Rate einen Schritt nach rechts zu machen ist $\beta$. Die Rate gibt an, wie oft ein Schritt stattfindet und hängt eng mit der Wahrscheinlichkeit eines Schrittes zusammen. Hier wird also nicht mehr zu bestimmten Zeitpunkten eine Münze geworfen, sondern die Wahrscheinlichkeiten sind erst einmal unterschiedlich.\\ Wie verändert sich also die Wahrscheinlichkeit $P$ zu einer bestimmten Zeit $t$ an einem bestimmten Punkt $x$ zu sein? Sie setzt sich zusammen aus der Wahrscheinlichkeit von rechts einen Schritt nach links zu machen oder umgekehrt und der Wahrscheinlichkeit von $x$ einen Schritt weg zu gehen..
+Anhand des \emph{random walk} kann die Diffusionsgleichung hergeleitet werden, ohne physikalische Begriffe, wie etwa Konzentration, zu verwenden, sondern nur mithilfe der Statistik. Das deutet auf die enge Verbindung des \emph{random walks} mit der Thermodyanmik/Statistischen Physik hin.\\
+Zuerst wird ein \emph{random walk} mit konstanter Schrittgröße $l$ betrachtet. Die Rate einen Schritt nach links zu machen ist $\alpha$ und die Rate einen Schritt nach rechts zu machen ist $\beta$. Die Rate gibt an, wie oft ein Schritt stattfindet und hängt eng mit der Wahrscheinlichkeit eines Schrittes zusammen. Hier wird also nicht mehr zu bestimmten Zeitpunkten eine Münze geworfen, sondern die Wahrscheinlichkeiten sind erst einmal unterschiedlich.\\ Wie verändert sich die Wahrscheinlichkeit $P$ zu einer bestimmten Zeit $t$ an einem bestimmten Punkt $x$ zu sein? Sie setzt sich zusammen aus der Wahrscheinlichkeit von rechts einen Schritt nach links zu machen oder umgekehrt und der Wahrscheinlichkeit von $x$ einen Schritt weg zu gehen.
 \begin{equation}
   \frac{\partial P}{\partial t} (x, t) = \alpha P(x + l, t) + \beta P(x - l, t) - (\alpha + \beta) P(x, t)
 \end{equation}
@@ -48,4 +57,4 @@ Eingesetzt in die Taylorreihendarstellung verschwinden alle Terme, die noch ein 
 \begin{equation}
   \frac{\partial P}{\partial t} (x, t) = - A \frac{\partial P}{\partial x}(x, t) + \frac{1}{2} B \frac{\partial^2 P}{\partial x^2} (x, t)
 \end{equation}
-Diese Gleichung erinnert stark an die Diffusionsgleichung (?), wenn $P$ gegen die Konzentration $c$ ausgetauscht wird. Der $A$-Term beschreibt den Drift, also eine Bewegung des ganzen Systems und der $B$-Term beschreibt die Diffusion. Dieser Faktor von 2 führt auch zu der Konvention in der Gleichung (\ref{eq:diff}).
+Diese Gleichung erinnert stark an die Diffusionsgleichung (\ref{eq:diffusion}), wenn $P$ gegen die Konzentration $c$ ausgetauscht wird. Der $A$-Term beschreibt den Drift, also eine Bewegung des ganzen Systems und verschwindet für $\alpha = \beta$ und der $B$-Term beschreibt die Diffusion. Dieser Faktor von 2 führt auch zu der Konvention in der Gleichung (\ref{eq:diff}).
