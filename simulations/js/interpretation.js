@@ -1,3 +1,8 @@
+// file: interpretation.js
+// date: 25.01.2017
+// author: Erik Teichmann eteichma@uni-potsdam.de
+// Purpose: Functions to evaluate the data from the simulation
+
 // Sum all the elements in an array
 function sumArray(data) {
 
@@ -12,7 +17,6 @@ function sumArray(data) {
 
 
 // Returns the steplength between a given number (consolidate) of collisions.
-// There seems to be a small bug, where we sometimes get steps for an edge-case.
 function prepDelta() {
 
   var delta = [[], []];
@@ -30,13 +34,16 @@ function prepDelta() {
 
   // delta is an array of single steps, but we want to sum over a given number
   // of steps.
+  // data[0] is x and data[1] is y
   var len = delta[0].length;
 
   for (var i = 0; i < len / consolidate; i++){
-    var dat = sumArray(delta[0].slice(0, consolidate));
-    data[0].push(dat);
-    var dat = sumArray(delta[1].slice(0, consolidate));
-    data[1].push(dat);
+    var dat_x = sumArray(delta[0].slice(0, consolidate));
+    var dat_y = sumArray(delta[1].slice(0, consolidate));
+    if (dat_x % 2 == 0 && dat_y % 2 == 0) {
+      data[0].push(dat_x);
+      data[1].push(dat_y);
+    }
     delta[0].splice(0, consolidate);
     delta[1].splice(0, consolidate);
   }

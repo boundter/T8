@@ -1,3 +1,8 @@
+// file: randomParticle.js
+// date: 25.01.2017
+// author: Erik Teichmann eteichma@uni-potsdam.de
+// Purpose: Functions to simulate the Brownian motion
+
 // Object of a particle under the browian motion with the following members:
 // x,y Current position.
 // r Size of the particle in pixels.

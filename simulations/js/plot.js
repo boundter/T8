@@ -1,3 +1,11 @@
+// file: plot.js
+// date: 25.01.2017
+// author: Erik Teichmann eteichma@uni-potsdam.de
+// Purpose: Function to plot the distribution
+
+// FIXME: 1. The old plot stays below the new one, so when you hover over it,
+//           it comes through.
+
 // Plot using Chart.js. This is all just mashed up from different examples, so
 // there is probably a lot of unnecessary stuff in there.
 function plt(dat, lin) {

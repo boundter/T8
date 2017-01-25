@@ -1,7 +1,7 @@
-// FIXME: 1. The old plot stays below the new one, so when you hover over it
-//           it comes through.
-//        2. The edge-cases for the histogram show fals values, probbably
-//           becaus of the consolidation.
+// file: main.js
+// date: 25.01.2017
+// author: Erik Teichmann eteichma@uni-potsdam.de
+// Purpose: Simulate the Brownian motion
 
 var canvas; // Canvas for the simulation.
 var ctx; // Context of the canvas for the simulation
