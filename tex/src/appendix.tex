@@ -29,7 +29,7 @@ Das bedeutet, dass alle Momente $m > 2$ für eine unendliche Beobachtungsdauer v
 
 \subsection*{Diffusionsgleichung}
 Anhand des \emph{random walk} kann die Diffusionsgleichung hergeleitet werden, ohne physikalische Begriffe, wie etwa Konzentration, zu verwenden, sondern nur mithilfe der Statistik. Das deutet auf die enge Verbindung des \emph{random walks} mit der Thermodyanmik/Statistischen Physik hin.\\
-Zuerst wird ein \emph{random walk} mit konstanter Schrittgröße $l$ betrachtet. Die Rate einen Schritt nach links zu machen ist $\alpha$ und die Rate einen Schritt nach rechts zu machen ist $\beta$. Die Rate gibt an, wie oft ein Schritt stattfindet und hängt eng mit der Wahrscheinlichkeit eines Schrittes zusammen. Hier wird also nicht mehr zu bestimmten Zeitpunkten eine Münze geworfen, sondern die Wahrscheinlichkeiten sind erst einmal unterschiedlich.\\ Wie verändert sich die Wahrscheinlichkeit $P$ zu einer bestimmten Zeit $t$ an einem bestimmten Punkt $x$ zu sein? Sie setzt sich zusammen aus der Wahrscheinlichkeit von rechts einen Schritt nach links zu machen oder umgekehrt und der Wahrscheinlichkeit von $x$ einen Schritt weg zu gehen.
+Zuerst wird ein \emph{random walk} mit konstanter Schrittgröße $l$ betrachtet. Die Rate einen Schritt nach links zu machen ist $\alpha$ und die Rate einen Schritt nach rechts zu machen ist $\beta$. Die Rate gibt an, wie oft ein Schritt stattfindet und kann auch als eine Form der Wahrscheinlichkeit eines Schrittes interpretiert werden. Hier wird also nicht mehr zu bestimmten Zeitpunkten eine Münze geworfen, sondern die Wahrscheinlichkeiten sind erst einmal unterschiedlich.\\ Wie verändert sich die Wahrscheinlichkeit $P$ zu einer bestimmten Zeit $t$ an einem bestimmten Punkt $x$ zu sein? Sie setzt sich zusammen aus der Wahrscheinlichkeit von rechts einen Schritt nach links zu machen und auf $x$ zu landen oder umgekehrt von rechts nach links und der Wahrscheinlichkeit von $x$ einen Schritt weg zu gehen.
 \begin{equation}
   \frac{\partial P}{\partial t} (x, t) = \alpha P(x + l, t) + \beta P(x - l, t) - (\alpha + \beta) P(x, t)
 \end{equation}
@@ -37,7 +37,7 @@ Um die Wahrscheinlichkeit, links oder rechts von $x$ zu sein, zu bestimmen kann 
 \begin{equation}
   P(x \pm l, t) = P(x, t) \pm l \frac{\partial P}{\partial x}(x, t) + \frac{l^2}{2} \frac{\partial^2 P}{\partial x^2}(x, t) \pm \frac{l^3}{6} \frac{\partial^3 P}{\partial x^3}(x, t) + \cdots
 \end{equation}
-Die Taylorreihe wird in die vorige Formel eingesetzt.
+Die Taylorreihe wird in die vorherige Formel eingesetzt.
 \begin{equation}
   \frac{\partial P}{\partial t} (x, t) = l (\alpha - \beta) \frac{\partial P}{\partial x}(x, t) + \frac{1}{2} l^2 (\alpha + \beta) \frac{\partial^2 P}{\partial x^2}(x, t) + \frac{1}{6} l^3 (\alpha - \beta) \frac{\partial^3 P}{\partial x^3}(x, t)
 \end{equation}
@@ -50,4 +50,4 @@ Eingesetzt in die Taylorreihendarstellung verschwinden alle Terme, die noch ein 
 \begin{equation}
   \frac{\partial P}{\partial t} (x, t) = - A \frac{\partial P}{\partial x}(x, t) + \frac{1}{2} B \frac{\partial^2 P}{\partial x^2} (x, t)
 \end{equation}
-Diese Gleichung erinnert stark an die Diffusionsgleichung (\ref{eq:diffusion}), wenn $P$ gegen die Konzentration $c$ ausgetauscht wird. Der $A$-Term beschreibt den Drift, also eine Bewegung des ganzen Systems und verschwindet für $\alpha = \beta$ und der $B$-Term beschreibt die Diffusion. Dieser Faktor von 2 führt auch zu der Konvention in der Gleichung (\ref{eq:diff}).
+Diese Gleichung erinnert stark an die Diffusionsgleichung (\ref{eq:diffusion}), wenn $P$ gegen die Konzentration $c$ ausgetauscht wird. Der $A$-Term beschreibt den Drift, also eine Bewegung des ganzen Systems und verschwindet für $\alpha = \beta$ und der $B$-Term beschreibt die Diffusion. Der Faktor $1/2$ vor dem $B$ führt auch zu der Konvention in Gleichung (\ref{eq:diff}).
