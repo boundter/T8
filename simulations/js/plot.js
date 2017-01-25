@@ -56,6 +56,10 @@ function plt(dat, lin) {
           },
           labels: {
             show: true,
+          },
+          scaleLabel: {
+            display: true,
+            labelString: "Delta x"
           }
         }],
         yAxes: [{
@@ -68,7 +72,10 @@ function plt(dat, lin) {
           },
           labels: {
             show:true,
-
+          },
+          scaleLabel: {
+            display: true,
+            labelString: "Anzahl"
           }
         }, {
           type: "linear",
@@ -80,7 +87,10 @@ function plt(dat, lin) {
           },
           labels: {
             show:true,
-
+          },
+          scaleLabel: {
+            display: true,
+            labelString: "Wahrscheinlichkeit"
           }
         }]
       }
