@@ -102,14 +102,12 @@ verglichen werden. Um die Skala anzupassen muss die Normalverteilung mit der Anz
 - Verteilung kann nur Gauss sein, wegen Momenten
 - Diffusionsgleichung aus random walk
 
-#TODO: Add good number of intervals and plot
-#TODO: examples for different programs?
 Histogram und boxing-method:
 Ein Histogram spiegelt die kontinuierliche Wahrscheinlichkeitsverteilung von diskreten Messdaten wieder. Anhand eines Histograms kann bestimmt werden, wie wahrscheinlich eine Messergebnis innerhalb eines Intervals liegt. Darin besteht auch die größte Schwierigkeit dieser Methode: die geschickte Wahl der Intervalle. Alle Intervalle sollten die gleiche Größe haben, da sonst das Histogram verfälscht wird, aber die genaue Größe hängt von der untersuchten  Datenreihe ab.
 Am einfachsten lassen sich die Intervalle finden, indem vorher über die Auflösung, also die Anzahl der Intervalle entschieden wird.  Ist die Auflösung zu fein, sind also die Intervalle sehr klein, dann ist in ihnen meist nur ein Messpunkt enthalten und die resultierende Verteilung ist nahezu eine Gleichverteilung. Ist sie hingegen zu grob, gibt es also zu wenig Intervalle, dann sind werden zu viele unterschiedliche Messwerte zusammengefasst. Für diesen Versuch eignen sich etwa ?12? Intervalle. Um die Intervallgröße zu bestimmen kann die Formel
 // Formel für Intervalle
 benutzt werden. Dabei ist Max der größte Messwert, Min der kleinste Messwert und #Intervalle die Anzahl der Intervalle.
-Danach wird die Anzahl der Messwerte in jedem Intervall gezählt und mit Balken aufgetragen, wie in Abbildung ??? zu sehen ist, die Höhe der Balken liefert die Wahrscheinlichkeitsverteilung. 
+Danach wird die Anzahl der Messwerte in jedem Intervall gezählt und mit Balken aufgetragen, wie in Abbildung ??? zu sehen ist, die Höhe der Balken liefert die Wahrscheinlichkeitsverteilung.
 
 
 Momente:
