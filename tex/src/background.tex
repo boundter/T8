@@ -14,11 +14,11 @@ Um diese Hilfsmittel effizient auf die Brownsche Bewegung anwenden zu können, m
 Es ist intuitiv klar, dass sich das Teilchen im Durchschnitt nicht von seiner Ursprungslage wegbewegt, ist der Ursprung bei $x = 0$, dann ist also $\left< x \right> = 0$. Aber was ist mit der Standardabweichung? Da hier $x^2$ eine Rolle spielt, löschen sich die Schritte nach links und rechts nicht gegenseitig aus.
 Desto größer die Schrittweite ist, desto weiter wird sich das Teilchen im Durchschnitt von der Nulllage entfernen. Alternativ kann auch die Zeit zwischen zwei Schritten verringert werden. Aus dieser Überlegung ergibt sich die Diffusionskonstante $D$. Sie gibt an, wie weit sich das Teilchen von seinem Ursprung in einer gewissen Zeit $t$ entfernt.
 \begin{equation}
-  D = \frac{\delta^2}{2 \tau}
+  D = \frac{\delta^2}{2 \tau} \label{eq:diff}
 \end{equation}
 Und diese hängt mit der Standardabweichung zusammen,
 \begin{align}
-  \sigma^2 & = 2Dt \label{eq:diff} \\
+  \sigma^2 & = 2Dt \label{eq:stdev} \\
    & = \delta^2 \frac{t}{\tau}.
 \end{align}
 Das heißt, die Standardabweichung steigt in jeder Zeiteinheit $\sqrt{\tau}$ um die Schrittweite $\delta$. Die mittlere quadratische Entfernung vom Ausgangspunkt hängt also von der Diffusionskonstante (dem \emph{random walk}) und der Beobachtungszeit ab. Die konstanten Faktoren 2 sind nur aus Konventionsgründen aufgetreten, denn sie kürzen sich gegenseitig.\\
@@ -36,7 +36,7 @@ Dabei ist $k_B$ die Boltzmann-Konstante, $T$ die Temperatur in K und $C$ die Sto
 \begin{equation}
   C = 6 \pi \eta r
 \end{equation}
-In der Einstein-Smoluchowksi taucht wieder die Diffusionskonstante auf. Allerdings wird bei der Herleitung in Gleichung (\ref{eq:einstein}) nicht direkt von einem \emph{random walk} ausgegangen. Das $D$ kommt hier von der Diffusionsgleichung
+In der Einstein-Smoluchowksi Gleichung taucht wieder die Diffusionskonstante auf. Allerdings wird bei der Herleitung in Gleichung (\ref{eq:einstein}) nicht direkt von einem \emph{random walk} ausgegangen. Das $D$ kommt hier von der Diffusionsgleichung
 \begin{equation}
   \frac{\partial c}{\partial t}(x, t) = D \frac{\partial^2 c}{\partial x^2} (x, t). \label{eq:diffusion}
 \end{equation}
