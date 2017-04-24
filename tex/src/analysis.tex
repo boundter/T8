@@ -18,13 +18,13 @@ Sämtliche Rechnungen sollen für $x$ und $y$ durchgeführt werden, im weiteren 
 
 \begin{enumerate}
 
-  \item Als erstes soll die Bewegung des Teilchens in einem $x$-$y$-Diagramm dargestellt werden. Hieran ist kurz zu erklären wie die Bewegung während der Messreihe verlief und welche Ergebnisse zu erwarten sind.
+  \item Als erstes soll die Bewegung des Teilchens in einem $x$-$y$-Diagramm dargestellt werden. Hieran ist kurz zu erklären, wie die Bewegung während der Messreihe verlief und welche Ergebnisse zu erwarten sind.
 
-  \item Sämtliche Messwerte müssen von Pixel in Meter umgerechnet werden. Dazu wird verwendet, dass zwischen zwei Skalenstrichen des Objektmikrometers $10\, \mu$m liegen.
+  \item Sämtliche Messwerte müssen von Pixel in Meter umgerechnet werden. Der hierfür notwendige Massstab wird durch das Objektmikrometer ermittelt (siehe Experiment - Teil 2 Punkt 2).
 
   \item Aus den Messdaten wird die Verschiebung $\Delta x$ zwischen zwei Bildern bestimmt.
 
-  \item Die $\Delta x$ sollen in einem Histogram dargestellt und mit der Normalverteilung (\ref{eq:gauss}) verglichen werden. Daraus ergeben sich der Mittelwert und die Standardabweichung $\sigma$. \textcolor{blue}{Was ist für den Mittelwert zu erwarten?}
+  \item Die $\Delta x$ sollen in einem Histogram (siehe Histogramme mit SciDAVis) dargestellt und mit der Normalverteilung (\ref{eq:gauss}) verglichen werden. Daraus ergeben sich der Mittelwert und die Standardabweichung $\sigma$. \textcolor{blue}{Was ist für den Mittelwert zu erwarten?}
 
   \item Aus $\sigma$ soll die Diffusionskonstante mithilfe von Gleichung (\ref{eq:diff}) berechnet werden. Die Zeit $t$ entspricht dem Zeitintervall zwischen zwei Bildern.
 
@@ -43,12 +43,11 @@ Das Histogramm ist unter \emph{Diagramm $\rightarrow$ Statistische Diagramme $\r
 Zuletzt fehlt noch ein Fit mit der Normalverteilung. Dieser geht sehr schnell, da SciDAVis eine eingebaute Funktion dafür hat. Diese liegt unter \emph{Analyse $\rightarrow$ Kurvenanpassungsassistent $\rightarrow$ Eingebaut $\rightarrow$ GaussAmp und Haken bei ``Mit eingebauter Funktion anpassen'' setzen $\rightarrow$ Anpassen $\rightarrow$ Anpassen}. In dem \emph{Ergebnis-Log} lassen sich alle wichtigen Größen wiederfinden. Der Mittelwert ist $xc$ (Mitte) und die Standardabweichung $\sigma$ ist $w$ (Breite). Vorsicht: Der Fit war nur erfolgreich, wenn aucht \emph{Status = success} am Ende des \emph{Ergebnis-Log} ausgegeben wird.
 
 
-% TODO: Literature: Bergmann Teil 1; Gerthsen
 \section*{Literatur}
 
 \begin{enumerate}
 
-  \item Lüders, K. \& Oppen, G.; Band 1 Klassische Physik - Mechanik und Wärme\\ (auch Bergmann/Schaefer kompakt - Lehrbuch der Experimentalphysik Band 1)
+  \item Lüders, K. \& Oppen, G.; Band 1 Klassische Physik - Mechanik und Wärme\\ (auch Bergmann/Schaefer kompakt - Lehrbuch der Experimentalphysik Band 1) \label{it:bergmann}
 
   \item Meschede, D.; Gerthsen Physik
 

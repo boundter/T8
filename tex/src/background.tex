@@ -8,7 +8,7 @@ Da die Brownsche Bewegung zufällig ist, können keine präzisen Voraussagen üb
 Die wichtigsten Mittel in der Statistik sind der Mittelwert und die Standardabweichung. Der \textbf{Mittelwert} $\mean{\Delta x}$ gibt die durchschnittliche Verschiebung in x-Richtung an und die \textbf{Standardabweichung} $\sigma$ gibt die durchschnittliche Verschiebung von $\mean{\Delta x}$ an. Für diskrete Prozesse sind sie folgendermaßen definiert:
 \begin{align}
   \mean{x} & = \frac{1}{N} \sum_{i=1}^{N} x_i, \\
-  \sigma & = \sqrt{\mean{ {\left( x - \mean{x} \right)}^2 }} = \sqrt{\frac{1}{N} \sum_{i=1}^{N} {\left( x_i - \mean{x} \right)}^2}.
+  \sigma & = \sqrt{\mean{ {\left( x - \mean{x} \right)}^2 }} = \sqrt{\frac{1}{N - 1} \sum_{i=1}^{N} {\left( x_i - \mean{x} \right)}^2}.
 \end{align}
 Um Prozesse genauer zu beschreiben werden Wahrscheinlichkeitsverteilungen verwendet. Sie geben an, mit welcher Wahrscheinlichkeit ein Wert gemessen wird. Histogramme dienen dazu, solch eine Verteilung mit endlich vielen Messwerten zu beschreiben.\\
 Die Verteilung, die hier von Bedeutung ist, ist die Normalverteilung. Sie ist durch die Verteilungsfunktion
@@ -26,7 +26,7 @@ Um diese Hilfsmittel effizient auf die Brownsche Bewegung anwenden zu können, m
 \begin{equation}
   D = \frac{\delta^2}{2 \tau}. \label{eq:diff_random}
 \end{equation}
-Sie gibt an, wie weit sich das Teilchen durch die zufällige Bewegung im Durchschnitt nach einem Schritt von der Nulllage entfernt.\\
+Sie gibt an, wie weit sich das Teilchen durch die zufällige Bewegung im Mittel, nach einem Schritt, von der Nulllage entfernen kann.\\
 Es ist intuitiv klar, dass sich das Teilchen im Durchschnitt nicht von seiner Ursprungslage wegbewegt, ist der Ursprung bei $\Delta x = 0$, dann ist also $\mean{\Delta x} = 0$. Aber was ist mit der Standardabweichung? Da hier $\Delta x^2$ eine Rolle spielt, löschen sich die Schritte nach links und rechts nicht gegenseitig aus.
 Desto größer die Schrittweite ist, desto weiter wird sich das Teilchen im Durchschnitt von der Nulllage entfernen. Alternativ kann auch die Zeit zwischen zwei Schritten verringert werden. Aus dieser Überlegung ergibt sich die Diffusionskonstante $D$ für den Versuch, denn die Diffusionskonstante aus (\ref{eq:diff_random}) beschreibt nur den \emph{random-walk}.\\
 Um sie benutzen zu können, müsste die durchschnittliche Zeit zwischen den Stößen und die durchschnittliche Verschiebung nach einem Stoß bekannt sein. Diese Größen können aber nicht experimentell ermittelt werden. Stattdessen kann die Verschiebung zwischen zwei Messungen als \emph{random-walk} aufgefasst werden. Die Schrittweite dieses \emph{random-walks} ist nicht konstant, aber wenn die Bewegung genügend lange beobachtet wird, kann die mittlere Verschiebung als Schrittweite $\delta$ gewählt werden. Das ist aber gerade die Standardabweichung $\sigma$ der Verschiebung $\Delta x$. Und die Zeit zwischen zwei Schritten ist die Zeit zwischen zwei Messungen $t$. Damit ist die experimentell ermittelte Diffusionskonstante
@@ -52,4 +52,4 @@ In der Einstein-Smoluchowksi Gleichung taucht wieder die Diffusionskonstante auf
   \frac{\partial c}{\partial t}(x, t) = D \frac{\partial^2 c}{\partial x^2} (x, t). \label{eq:diffusion}
 \end{equation}
 Diese Gleichung beschreibt die zeitliche Änderung der Konzentration $c$, abhängig von ihrer räumlichen Verteilung. Eine konstante Lösung der Diffusion ist es, dass sich die Konzentration solange ändert, bis sie überall gleich ist. Die Geschwindigkeit dieser Änderung ist durch die Diffusionskonstante gegeben.\\
-Es lässt sich zeigen, dass die Diffusionskonstante des \emph{random walks} genau der Diffusionskonstante der Thermodynamik entspricht, was auf die enge Verbindung zwischen dem \emph{random walk} und der Brownschen Bewegung hindeutet.
+Es lässt sich zeigen, dass die Diffusionskonstante des \emph{random walks} genau der Diffusionskonstante der Thermodynamik entspricht, was auf die enge Verbindung zwischen dem \emph{random walk} und der Brownschen Bewegung hindeutet [\ref{it:bergmann}].
