@@ -8,6 +8,7 @@ var ctx; // Context of the canvas for the simulation
 var fps = 30; // Frames per second = smallest number of collisons
 var particle; // List of particles, to loop over.
 var consolidate = 10; // Number of steps to average over for distirbution.
+var myChart; // the chart in the plot
 
 
 // Make a black canvas the size of the whole screen.
@@ -22,6 +23,12 @@ function setup() {
 
 
 function draw(part, t, col) {
+
+  // remove old chart before starting a new simulation
+  if(myChart) {
+    console.log("Destroying old chart");
+    myChart.destroy();
+  }
 
   // we want to make one step for every picture.
   var maxSteps = fps*t;
@@ -64,7 +71,7 @@ function draw(part, t, col) {
       var vari = calcVariance(data);
       var normal = normalDistribution(mean, vari);
       var histo = buildHistogram(data);
-      plt(histo, normal);
+      myChart = plt(histo, normal);
     }
   }
 
