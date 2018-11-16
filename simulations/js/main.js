@@ -58,15 +58,15 @@ function draw(part, t, col) {
     }
     steps += 1;
     // Check, if we have drawn enough pictures.
-    if (steps === maxSteps) {
+    if (steps === maxSteps + 1) {
       clearInterval(id);
       var data = [];
       // Plot path and distribution.
       for (var i = 0; i < particle.length; i++) {
         particle[i].path();
-        var delta = prepDelta();
-        data = data.concat(delta[0]);
       }
+     var delta = prepDelta();
+     data = data.concat(delta[0]);
       var mean = calcMean(data);
       var vari = calcVariance(data);
       var normal = normalDistribution(mean, vari);

@@ -64,7 +64,7 @@ function plt(dat, lin) {
           },
           scaleLabel: {
             display: true,
-            labelString: "Delta x"
+            labelString: "Delta x / 10 Stöße"
           }
         }],
         yAxes: [{
@@ -80,7 +80,7 @@ function plt(dat, lin) {
           },
           scaleLabel: {
             display: true,
-            labelString: "Anzahl"
+            labelString: "Häufigkeit"
           }
         }, {
           type: "linear",
